@@ -2,8 +2,8 @@ import streamlit as st
 from calculate_reactivity import calculate_reactivity_indices
 
 def welcome_message():
-    st.sidebar.title("Welcome to the Reactivity Indices Calculator")
-    st.sidebar.write("If you have any questions or suggestions, feel free to reach out to me at mahmoodmsaad9@gmail.com")
+    st.title("Welcome to the Reactivity Indices Calculator")
+    st.write("If you have any questions or suggestions, feel free to reach out to me at mahmoodmsaad9@gmail.com")
 
 def main():
     # Display a welcome message
