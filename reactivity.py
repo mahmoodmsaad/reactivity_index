@@ -34,7 +34,7 @@ def main():
         st.write(f"{key}: {value:.4f} eV")
 
     # Reference
-    st.markdown("**Reference:** [DOI: 10.1021/acsomega.1c05504](https://doi.org/10.1021/acsomega.1c05504)")
+    st.markdown("<span style='color:green; font-size:200%;'>**Reference:**</span> [DOI: 10.1021/acsomega.1c05504](https://doi.org/10.1021/acsomega.1c05504)", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
