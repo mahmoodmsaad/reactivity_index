@@ -31,5 +31,8 @@ def main():
     for key, value in reactivity_indices.items():
         st.write(f"{key}: {value:.4f} eV")
 
+    # Reference
+    st.markdown("Reference: [DOI: 10.1021/acsomega.1c05504](https://doi.org/10.1021/acsomega.1c05504)")
+
 if __name__ == "__main__":
     main()
