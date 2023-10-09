@@ -10,6 +10,9 @@ def calculate_reactivity_indices(homo_ev, lumo_ev):
     electrophilicity = (chemical_potential ** 2) / (2 * hardness)
     softness = 1 / (2 * hardness)
 
+    # Calculate delta_N (Total amount of charge transfer) in eV
+    delta_N = -(chemical_potential / hardness)
+
     return {
         "HOMO (eV)": homo_ev,
         "LUMO (eV)": lumo_ev,
@@ -19,4 +22,5 @@ def calculate_reactivity_indices(homo_ev, lumo_ev):
         "Hardness (η)": hardness,
         "Electrophilicity (ɷ)": electrophilicity,
         "Softness (S)": softness,
+        "Total amount of charge transfer (δN)": delta_N,
     }
