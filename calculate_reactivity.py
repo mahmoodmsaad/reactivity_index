@@ -1,4 +1,8 @@
-def calculate_reactivity_indices(homo_ev, lumo_ev):
+def calculate_reactivity_indices(homo_hetree, lumo_hetree):
+    # Convert HOMO and LUMO from hetree to eV (1 hetree = 27.2114 eV)
+    homo_ev = homo_hetree * 27.2114
+    lumo_ev = lumo_hetree * 27.2114
+
     # Calculate delta_E in eV
     delta_e = lumo_ev - homo_ev
 
@@ -37,3 +41,13 @@ def calculate_reactivity_indices(homo_ev, lumo_ev):
         "Softness (S)": softness,
         "Total amount of charge transfer (δN)": delta_N,
     }
+
+# Example usage
+homo_hetree = -0.225  # Replace with your HOMO value in hetree
+lumo_hetree = 0.112   # Replace with your LUMO value in hetree
+
+reactivity_indices = calculate_reactivity_indices(homo_hetree, lumo_hetree)
+
+# Print the results
+for key, value in reactivity_indices.items():
+    print(f"{key}: {value:.4f} eV")
