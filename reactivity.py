@@ -5,11 +5,23 @@ def main():
     st.title("Reactivity Indices Calculator")
 
     # User inputs
-    homo_ev = st.number_input("Enter HOMO value in eV:", value=0.0, step=0.01)
-    lumo_ev = st.number_input("Enter LUMO value in eV:", value=0.0, step=0.01)
+    units = st.selectbox("Select input units:", ["eV", "Kcal/mol", "hetree"])
+    homo_value = st.number_input("Enter HOMO value:")
+    lumo_value = st.number_input("Enter LUMO value:")
 
-    if homo_ev < 0 or lumo_ev < 0:
-        st.warning("Negative values are ignored. Please enter positive values for HOMO and LUMO.")
+    # Convert values to eV for calculations
+    if units == "Kcal/mol":
+        # Conversion factor: 1 Kcal/mol = 0.043364 eV
+        homo_ev = homo_value * 0.043364
+        lumo_ev = lumo_value * 0.043364
+    elif units == "hetree":
+        # Conversion factor: 1 hetree = 27.2114 eV
+        homo_ev = homo_value * 27.2114
+        lumo_ev = lumo_value * 27.2114
+    else:
+        # eV input
+        homo_ev = homo_value
+        lumo_ev = lumo_value
 
     # Calculate reactivity indices
     reactivity_indices = calculate_reactivity_indices(homo_ev, lumo_ev)
